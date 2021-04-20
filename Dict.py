@@ -1,6 +1,6 @@
 
 
-##consider memoziation to impress?
+
 ##constraints
 #- every muscle group gets worked at most twice per week and at least once per week.
 
