@@ -1,3 +1,5 @@
+Web app URL: https://hello-app-310916.rj.r.appspot.com/
+
 Before I made this program, several of my friends expressed difficulty creating a good workout program that properly balanced rest days, muscle groups and a good variety of exercises.
 
 This program aims to help those of us who are confused or overwhelmed by the task of creating (and following) a weightlifting schedule that properly balances the variables above.
