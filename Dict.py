@@ -1,22 +1,24 @@
 
 
 
-##constraints
-#- every muscle group gets worked at most twice per week and at least once per week.
+##constraints##
+#___________________#
+#- 1)Every muscle group gets worked at most twice per week and at least once per week.
 
-## all muscle groups must be worked out before any group repeats.
+# 2) All muscle groups must be worked out before any group repeats.
 
-#No muscle groups can be worked out on consecutive days.
+# 3) No muscle groups can be worked out on consecutive days.
 
-##nums parameter is length of workout in minutes. Workout time must not exceed nums (DONE)
+##4) Nums parameter is length of workout in minutes. Workout time must not exceed nums 
 
-##if an exercise has been used, it can't be used again on the same day (DONE)
+## 5) If an exercise has been used, it can't be used again on the same day 
 
 #variables:
-##count = integer, keeps track of minutes spent during workout. cannot exceed num.
+##count = integer, keeps track of minutes spent during a daily workout. cannot exceed num for any given workout day.
 ## num = integer. Parameter given as input for maximum desired workout time.
 # workout = String. Prints each day's workouts and workout time.
 # day = integer. Keeps track of day.
+#dicts_dict = dictionary. Stores all workout data. Keys are excersise names, value is time in minutes.
 
 
 ##create one version with dict, one with list. Use dict.update method to change values.
@@ -81,8 +83,6 @@ def random_workout(num):
 
 random_workout(120)
 
-    #.random will be needed to select 2 muscle groups from muscle lists to initiate the week#
-    #.random will be needed to select exercise from muscle group list, then pop once used
 
 ##user input:
     ## Weighlifting experience (Beginner, Novice, Intermediate, Advanced, Professional)
@@ -90,7 +90,5 @@ random_workout(120)
     ## Workout time (30 min, 60 min, 90 min, 120 min)
 
 ##user output:
-    ## "Your ideal weekly workout schedule is..."
-    ##Want another workout? Try again!##
     # Link to Wikihow explaining all excercises#
     ## disclaimer that they should use Devin for better results
