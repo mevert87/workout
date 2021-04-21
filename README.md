@@ -1,4 +1,5 @@
 Web app URL: https://hello-app-310916.rj.r.appspot.com/
+Languages used: Python, Flask, HTML
 
 Before I made this program, several of my friends expressed difficulty creating a good workout program that properly balanced rest days, muscle groups and a good variety of exercises.
 
