@@ -5,7 +5,7 @@ Before I made this program, several of my friends expressed difficulty creating 
 
 This program aims to help those of us who are confused or overwhelmed by the task of creating (and following) a weightlifting schedule that properly balances the variables above.
 
-The program takes two input (workout time = 60, 90 or 120 minutes) and workout goals ( "Get Bigger" or "Get Stronger") and generates a full weekly workout schedule with the following constraints:
+The program takes two user inputs (workout time = 60, 90 or 120 minutes) and workout goals ( "Get Bigger" or "Get Stronger") and generates a full weekly workout schedule with the following constraints:
 
 Every muscle group gets worked at most twice per week and at least once per week.
 
