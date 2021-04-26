@@ -1,32 +1,50 @@
 
+from flask import Flask
+from flask import request
+
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    length = request.args.get("length", "")
+    if length:
+        length = int(length)
+        final = random_workout(length)
+    else:
+        final = ""
+    return (
+        """<form action="" method="get">
+                <name="length"/>
+                <label for="length">Choose a workout length (in minutes)</label>
+                <select name="length" id="length">
+                    <option value="">Select</option>
+                    <option value="60">60</option>
+                    <option value="90">90</option>
+                    <option value="120">120</option>
+                <input type="submit" value="Submit">
+                <br><br>
+                <workout>Based on your goals, here's possible weekly workout schedule for you:</workout> 
+                <br><br>
+                <br><br>
+            </form>"""
+
+            + final
 
 
-##constraints##
-#___________________#
-#- 1)Every muscle group gets worked at most twice per week and at least once per week.
 
-# 2) All muscle groups must be worked out before any group repeats.
-
-# 3) No muscle groups can be worked out on consecutive days.
-
-##4) Nums parameter is length of workout in minutes. Workout time must not exceed nums 
-
-## 5) If an exercise has been used, it can't be used again on the same day 
-
-#variables:
-##count = integer, keeps track of minutes spent during a daily workout. cannot exceed num for any given workout day.
-## num = integer. Parameter given as input for maximum desired workout time.
-# workout = String. Prints each day's workouts and workout time.
-# day = integer. Keeps track of day.
-#dicts_dict = dictionary. Stores all workout data. Keys are excersise names, value is time in minutes.
+    )
 
 
-##create one version with dict, one with list. Use dict.update method to change values.
+
+## To-do: render 3rd line of app to bold
+## Add refresh button or string message to bottom of page
+## Add section for
 
 
-dicts_dict = {"Back":{"Deadlift (Entire Back)": 20, "Lat-Pull Downs (Mid-back)": 20, "Barbell Shrugs(Upper back)": 15, "Standing Barbell Row (Middle back)": 20,
+
+dicts_dict = {"Back":{"Deadlift (Entire Back)": 20, "Lat-Pull Downs (Mid-back)": 20, "Barbell Shrugs (Upper back)": 15, "Standing Barbell Row (Middle back)": 20,
                        "Pull ups (Middle Back)": 15, "T-Bar Row (Middle Back)": 20, "Seated Row (Middle Back)": 20},
-            "Legs":{"Barbell Squats(Legs)": 30, "Barbell Lunges(Legs/Glutes)": 25, "Calf Raises(Legs)": 20,"Hamstring Curls- Machine (Legs)" : 20,
+            "Legs":{"Barbell Squats (Legs)": 30, "Barbell Lunges (Legs/Glutes)": 25, "Calf Raises (Legs)": 20,"Hamstring Curls- Machine (Legs)" : 20,
                         "Seated Leg Press (Legs)": 20},
              "Arms":{"Preacher Curls (Arms)": 20, "Bicep Dumbbell Curls (Arms)":20, "Tricep Extensions (Arms)" :15,
                         "Farmer Walks - (Arms - forearms)" : 15,  "Forearm curls (Arms - Forearms)": 20, "Machine dips (Arms - Triceps)": 20, "Wavy bar' curls (Arms - Biceps)": 15},
@@ -78,17 +96,10 @@ def random_workout(num):
             workout += " || Total workout time = " + " " + str(count) + " minutes"
 
         day += 1
-    workout += "\n" + "Day 7: Rest day"
-    print(workout)
+    workout += "\n" + "Day 7: Rest day" + "\n"
+    workout1 = workout.replace("\n", "<br /><br />\n")
+    return workout1
 
-random_workout(120)
 
-
-##user input:
-    ## Weighlifting experience (Beginner, Novice, Intermediate, Advanced, Professional)
-    ## I'd like to (Get bigger, Get Stronger, Get more toned)
-    ## Workout time (30 min, 60 min, 90 min, 120 min)
-
-##user output:
-    # Link to Wikihow explaining all excercises#
-    ## disclaimer that they should use Devin for better results
+if __name__ == "__main__":
+    app.run(host="127.0.0.1", port=8080, debug=True)
