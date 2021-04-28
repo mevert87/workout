@@ -1,8 +1,8 @@
-
 from flask import Flask
 from flask import request
 
 app = Flask(__name__)
+
 
 @app.route("/")
 def index():
@@ -10,9 +10,7 @@ def index():
     if length:
         length = int(length)
         final = random_workout(length)
-    else:
-        final = ""
-    return (
+        return (
         """<form action="" method="get">
                 <name="length"/>
                 <label for="length">Choose a workout length (in minutes)</label>
@@ -23,16 +21,40 @@ def index():
                     <option value="120">120</option>
                 <input type="submit" value="Submit">
                 <br><br>
-                <workout>Based on your goals, here's possible weekly workout schedule for you:</workout> 
+                <workout>Based on your goals, here's possible weekly workout schedule for you:</workout>
+                <hr>
+                <br><br>
+                
+            </form>"""
+
+            + final
+        )
+
+    else:
+        final = ""
+        return (
+        """<form action="" method="get">
+                <name="length"/>
+                <b><workout>Welcome to the random workout generator!</workout></b>
+                <br></br>
+                <workout>Select a workout time (in minutes) to generate a workout:</workout>
+                <br><br>
+                <label for="length"></label>
+                <select name="length" id="length">
+                    <option value="">Select</option>
+                    <option value="60">60</option>
+                    <option value="90">90</option>
+                    <option value="120">120</option>
+                <input type="submit" value="Submit">
+                <br><br>
                 <br><br>
                 <br><br>
             </form>"""
 
             + final
 
+                        )
 
-
-    )
 
 
 
@@ -91,13 +113,14 @@ def random_workout(num):
                 workout += "Day " + str(day) + ":" + " Rest day" + "\n"
             else:
                 workout.rstrip(",")
-                workout += " || Total workout time = " + " " + str(count) + " minutes" + "\n"
+                workout += " <b>|| Total workout time =</b> " + " " + str(count) + " minutes" + "\n"
         elif day == 6:
-            workout += " || Total workout time = " + " " + str(count) + " minutes"
+            workout += " <b>|| Total workout time = </b>" + " " + str(count) + " minutes"
 
         day += 1
     workout += "\n" + "Day 7: Rest day" + "\n"
     workout1 = workout.replace("\n", "<br /><br />\n")
+    workout1 += "<br></br>" + "<b>Don't like this workout plan? Try again to generate a new schedule!<b>" + "<h>"
     return workout1
 
 
